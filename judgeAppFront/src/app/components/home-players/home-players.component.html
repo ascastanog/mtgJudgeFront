@@ -1,1 +1,70 @@
-<p>home-players works!</p>
+<app-header></app-header>
+<Div class="d-flex">
+<app-sidebar></app-sidebar>
+  <div class="container ">
+
+
+    <div class="row row-cols-3 row-cols-lg-2 g-3 g-lg-2">
+      <div class="col">
+        <div class="card" style="width: 18rem;" *ngFor="let deck of decks; let i = index" >
+          <img src="{{deck.imagen}}" class=" " alt="">
+          <div class="card-body">
+            <h2 class="card-title">{{deck.nombreBaraja}}</h2>
+
+            <h5> {{deck.formato.nombre}}</h5>
+          <!--  <app-deck-carta [deck]="deck"></app-deck-carta>-->
+            <!--<a [routerLink]="['/deck-carta']" class="btn btn-primary">mostrar</a>
+          -->
+          <button class="btn btn-primary"(click)="irAlDeckCarta(deck)">Mostrar</button>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top d-flex" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top d-flex" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top d-flex" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top d-flex" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">mostrar</a>
+          </div>
+        </div>
+
+
+    </div>
+    </div>
+  </div>
+</Div>
+<app-cartas-deck></app-cartas-deck>
+<app-footer></app-footer>

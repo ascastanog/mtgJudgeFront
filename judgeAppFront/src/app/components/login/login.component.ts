@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    console.log("ha hecho el submit")
+   // console.log("ha hecho el submit")
     this.loginJugador = new LoginJugador(this.email, this.password);
     this.authService.login(this.loginJugador).subscribe(
       data => {

@@ -7,12 +7,15 @@ import {LoginComponent} from "./components/login/login.component";
 import {HomePlayersComponent} from "./components/home-players/home-players.component";
 import { NuevoJugadorComponent } from './components/nuevo-jugador/nuevo-jugador.component';
 
+import { CartasDeckComponent } from './components/cartas-deck/cartas-deck.component';
+
 const routes: Routes = [
   {path:'',component:IndexComponent},
   {path:'login',component: LoginComponent},
   {path:'registro',component:RegistroComponent},
   {path:'home-players', component: HomePlayersComponent},
   {path:'nuevo-usuario', component: NuevoJugadorComponent},
+  {path: 'cartas-deck', component: CartasDeckComponent},
 
 
   {path:'**', redirectTo:'login',pathMatch:'full'}
