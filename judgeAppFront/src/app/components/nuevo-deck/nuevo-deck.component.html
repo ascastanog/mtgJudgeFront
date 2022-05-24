@@ -1,0 +1,50 @@
+<app-header></app-header>
+<Div class="d-flex">
+  <app-sidebar></app-sidebar>
+  <div class="container ">
+
+  <form action="">
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Nombre de la baraja</span>
+      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+
+
+    <div class="input-group mb-3">
+      <select class="form-select" aria-label="Default select example">
+        <option *ngFor="let formato of formatos; let i = index" value="{{formato.id}}">{{formato.nombre}}</option>
+      </select>
+      <span class="input-group-text" id="basic-addon2">Formato</span>
+    </div>
+
+        <div class="input-group mb-3">
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Default file input example</label>
+        <input class="form-control" type="file" id="formFile">
+        <span class="input-group-text" id="basic-addon3">imagen</span>
+      </div>
+
+
+    </div>
+
+
+
+
+    <div class="input-group">
+      <span class="input-group-text">Deck</span>
+      <textarea class="form-control side " placeholder="MAIN &#10; 4 x thoughtsize &#10; 4 x griselbram &#10;. . .&#10;. . .&#10;SIDEBOARD &#10; 3 x Negate &#10; 3 x chalice of the void" aria-label="With textarea"></textarea>
+    </div>
+
+
+  </form>
+
+
+
+</div>
+
+
+
+<app-footer></app-footer>
+</Div>

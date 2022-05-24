@@ -21,6 +21,7 @@ import {interceptorProvider} from "./interceptors/prod-interceptor.service";
 
 import { CartasDeckComponent } from './components/cartas-deck/cartas-deck.component';
 import { TablaMazoComponent } from './components/tabla-mazo/tabla-mazo.component';
+import { NuevoDeckComponent } from './components/nuevo-deck/nuevo-deck.component';
 
 
 
@@ -40,6 +41,7 @@ import { TablaMazoComponent } from './components/tabla-mazo/tabla-mazo.component
     FooterComponent,
     CartasDeckComponent,
     TablaMazoComponent,
+    NuevoDeckComponent,
 
   ],
   imports: [

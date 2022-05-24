@@ -3,14 +3,11 @@
 
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item ">
-      <a href="#" class="nav-link active pb-4 pt-4"  aria-current="page">
-        <svg class="bi pe-none me-2" width="30" height="30"><use xlink:href="#home"></use></svg>
-        Tus decks
-      </a>
+      <a class="nav-link link-dark pb-4 pt-4" routerLink="/home-players" routerLinkActive="activo" aria-current="page" #one="routerLinkActive">Tus decks</a>
     </li>
     <li>
-      <a href="#" class="nav-link link-dark pb-4 pt-4">
-        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+      <a  routerLink="/nuevo-deck" routerLinkActive="activo" class="nav-link link-dark pb-4 pt-4">
+
         Nuevo deck
       </a>
     </li>

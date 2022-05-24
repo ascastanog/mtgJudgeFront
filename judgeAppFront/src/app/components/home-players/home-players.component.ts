@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-players',
- // template:'<app-deck-carta [deck]="deck">',
   templateUrl: './home-players.component.html',
   styleUrls: ['./home-players.component.css']
 })
@@ -16,7 +15,7 @@ export class HomePlayersComponent implements OnInit {
   decks:Deck[]=[];
 
 //  deck:Deck=new Deck();
-  constructor(private jugadorService: JugadorService, private deckCartaService: DeckCartaService, private router:Router) { }
+  constructor(private jugadorService: JugadorService, private deckCartaService: DeckCartaService, private router:Router, ) { }
 
   ngOnInit(): void {
    this.cargarDecks();

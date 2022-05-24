@@ -1,5 +1,6 @@
 
 <h1 *ngIf="cargado">Main</h1>
+<div class="ms-5 me-5">
 <table *ngIf="cargado" class="table">
   <thead>
   <tr>
@@ -11,13 +12,14 @@
   </thead>
   <tbody>
   <tr *ngFor=" let carta of deckCarta; let i = index">
-    <td *ngIf="carta.sideboard==false"> {{carta.copias}}</td>
+    <td *ngIf="carta.sideboard==false" > {{carta.copias}}</td>
     <td *ngIf="carta.sideboard==false">{{carta.carta.nombre}}</td>
   </tr>
 
 
   </tbody>
 </table>
+  <p  *ngIf="cargado">Cartas en el Main: {{cartasMain}}</p>
 <h1 *ngIf="cargado">Sideboard</h1>
 <table *ngIf="cargado" class="table">
   <thead>
@@ -37,5 +39,7 @@
 
   </tbody>
 </table>
+  <p  *ngIf="cargado">Cartas en el banquillo: {{cartasSideboard}}</p>
 
 
+</div>

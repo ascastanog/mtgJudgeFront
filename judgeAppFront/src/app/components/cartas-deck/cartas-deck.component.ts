@@ -20,10 +20,13 @@ export class CartasDeckComponent implements OnInit {
   deck:Deck = new Deck(1," ",this.jugador,this.formato,"");
   cargado: boolean = false;
 
+  cartasMain: number = 0;
+  cartasSideboard = 0;
   deckCarta:DeckCarta[] = [];
 
   constructor(private deckCartaService: DeckCartaService, private tablaMazoService: TablaMazoService) {
     this.prueba();
+   /* this.calcularCartasCopias();*/
 
   }
 
@@ -65,7 +68,20 @@ cargarDeckCarta(deckId:number): void {
       this.deckCarta = data;
       console.log("ha funcionado lo de cargar las cartas??")
       console.log(this.deckCarta)
+      this.cartasMain = 0;
+      this.cartasMain = this.tablaMazoService.calcularCartasCopiasMain(this.deckCarta)
+      this.cartasSideboard = this.tablaMazoService.calcularCartasCopiasSideboard(this.deckCarta)
+
     },error => {console.log(error)}
   )}
+/*calcularCartasCopias(){
+    for(let i =0; i<this.deckCarta.length; i++){
+      if(this.deckCarta[i].sideboard){
+        this.cartasSideboard += this.deckCarta[i].copias
 
+      }else{
+        this.cartasMain += this.deckCarta[i].copias
+      }
+    }
+}*/
 }
