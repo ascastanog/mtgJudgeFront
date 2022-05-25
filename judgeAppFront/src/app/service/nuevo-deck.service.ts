@@ -14,4 +14,12 @@ export class NuevoDeckService {
     return this.httpClient.get<any[]>("http://localhost:8080/deckBuilder/listaFormatos")
   }
 
+
+  public addDeck( formato:string, nombreBaraja:string, mazo:string): Observable<any[]>{
+    console.log("hemos llegado al addDeck del service")
+    console.log("formato="+formato)
+    console.log("nombreBaraja="+nombreBaraja)
+    console.log("mazo"+mazo)
+    return this.httpClient.post<any[]>("http://localhost:8080/deckBuilder/add?formatoJson="+formato+"&nombreBaraja="+nombreBaraja,mazo);
+  }
 }

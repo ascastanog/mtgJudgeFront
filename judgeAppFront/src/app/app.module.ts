@@ -48,6 +48,7 @@ import { NuevoDeckComponent } from './components/nuevo-deck/nuevo-deck.component
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
