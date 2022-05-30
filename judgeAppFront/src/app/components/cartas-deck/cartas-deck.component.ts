@@ -42,7 +42,7 @@ export class CartasDeckComponent implements OnInit {
     this.deckCartaService.disparadorDeDeck.subscribe(data =>{
         this.deck=data.data
 
-        console.log("data desde Tabla mazo"+data.data.nombre);
+        console.log("data desde Tabla mazo"+data.data.carta);
         console.log("deck:"+this.deck);
       //  console.log("nombre baraja: "+this.deck.nombreBaraja)
         this.cargado=true;

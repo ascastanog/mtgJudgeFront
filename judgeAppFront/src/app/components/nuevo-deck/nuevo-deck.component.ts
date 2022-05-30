@@ -31,7 +31,7 @@ Json:string="";
     )
   }
 
-  formarJson():string{
+  formarJson():any{
   let cadena = this.textArea
     let cantidadCarta: any[]=[]
     let objeto: {};
@@ -40,39 +40,49 @@ Json:string="";
     let lineaMain :string [] = mainSide[0].split("\n")
     for( let i = 0; i<lineaMain.length; i++){
       let control: string []=lineaMain[i].split(" X ")
-
+      console.log("control[0]"+control[0])
+      console.log("control[1]: "+control[1])
    /*   console.log("carta: control[0],"+ control[0],)*/
+      if(control[1] != undefined){
 
       cantidadCarta.push({
-        carta: control[1],
+        carta:control[1],
         cantidad:control[0],
         sideboard:false
       })
+      }
     }
 
 
     let lineaSide :string [] = mainSide[1].split("\n")
-    for( let i = 0; i<lineaSide.length; i++){
-      let control: string []=lineaSide[i].split(" X ")
+    for( let i = 0; i<lineaSide.length; i++) {
+      let control: string [] = lineaSide[i].split(" X ")
+      console.log("control[0]"+control[0])
+      console.log("control[1]: "+control[1])
+      /*      console.log("carta: control[0],"+ control[1],)*/
+      if ( control[1] != undefined) {
+        cantidadCarta.push({
+          carta: control[1],
+          cantidad: control[0],
+          sideboard: true
+        })
 
-/*      console.log("carta: control[0],"+ control[1],)*/
-
-      cantidadCarta.push({
-        nombre: control[1],
-        cantidad:control[0],
-        sideboard:true
-      })
+      }
     }
 //console.log(JSON.stringify(cantidadCarta[0]))
 
 //console.log("linea: "+linea);
 //console.log("cantidadCarta: "+JSON.stringify(cantidadCarta))
 /*console.log("textArea: "+this.textArea);*/
- return cantidadCarta.toString();
+    console.log("cantidadCarta: "+JSON.stringify(cantidadCarta))
+ return cantidadCarta;
 
   }
   enviarMazo():any{
   console.log("enviar mazo hecho")
+    console.log("formato ts"+this.formato);
+    console.log("nombreBaraja ts: "+this.nombreBaraja)
+    console.log("formar JSON:"+this.formarJson())
     this.nuevoDeckService.addDeck(this.formato, this.nombreBaraja,this.formarJson())
 
   }

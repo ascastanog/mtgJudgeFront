@@ -30,10 +30,15 @@ cargarDecks():void{
   )
 }
 irAlDeckCarta(deck: Deck):void{
+    console.log("ir al deck carta"+deck)
 this.deckCartaService.disparadorDeDeck.next({
   data:deck
+
 })
- //this.router.navigate(['/cartas-deck'])
+
 }
+  scroll(el: HTMLElement) {
+    el.scrollIntoView();
+  }
 
 }

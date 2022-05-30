@@ -1,6 +1,7 @@
 
 <h1 *ngIf="cargado">Main</h1>
 <div class="ms-5 me-5">
+
 <table *ngIf="cargado" class="table">
   <thead>
   <tr>
@@ -14,6 +15,9 @@
   <tr *ngFor=" let carta of deckCarta; let i = index">
     <td *ngIf="carta.sideboard==false" > {{carta.copias}}</td>
     <td *ngIf="carta.sideboard==false">{{carta.carta.nombre}}</td>
+    <div class="hover_img">
+      <a href="#">Show Image<span><img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=405107&type=card" alt="image" height="100" /></span></a>
+    </div>
   </tr>
 
 
@@ -34,12 +38,14 @@
   <tr *ngFor=" let carta of deckCarta; let i = index">
     <td *ngIf="carta.sideboard"> {{carta.copias}}</td>
     <td *ngIf="carta.sideboard">{{carta.carta.nombre}}</td>
+    <div class="hover_img">
+      <a href="#">Show Image<span><img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=405107&type=card" alt="image" height="100" /></span></a>
+    </div>
   </tr>
 
 
   </tbody>
 </table>
   <p  *ngIf="cargado">Cartas en el banquillo: {{cartasSideboard}}</p>
-
 
 </div>
