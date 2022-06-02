@@ -8,6 +8,7 @@
 
     <th scope="col">Cantidad</th>
     <th scope="col">nombre de la carta</th>
+    <th scope="col">imagen</th>
 
   </tr>
   </thead>
@@ -15,12 +16,10 @@
   <tr *ngFor=" let carta of deckCarta; let i = index">
     <td *ngIf="carta.sideboard==false" > {{carta.copias}}</td>
     <td *ngIf="carta.sideboard==false">{{carta.carta.nombre}}</td>
-    <div class="hover_img">
-      <a href="#">Show Image<span><img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=405107&type=card" alt="image" height="100" /></span></a>
-    </div>
+    <td *ngIf="carta.sideboard==false" class="hover_img">
+      <a href="#">Show Image<span><img src="{{carta.carta.imagen}}" alt="image" height="200" /></span></a>
+    </td>
   </tr>
-
-
   </tbody>
 </table>
   <p  *ngIf="cargado">Cartas en el Main: {{cartasMain}}</p>
@@ -34,13 +33,13 @@
 
   </tr>
   </thead>
-  <tbody>
-  <tr *ngFor=" let carta of deckCarta; let i = index">
+  <tbody >
+  <tr *ngFor=" let carta of deckCarta; let i = index" >
     <td *ngIf="carta.sideboard"> {{carta.copias}}</td>
     <td *ngIf="carta.sideboard">{{carta.carta.nombre}}</td>
-    <div class="hover_img">
-      <a href="#">Show Image<span><img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=405107&type=card" alt="image" height="100" /></span></a>
-    </div>
+    <td *ngIf="carta.sideboard && carta.carta.imagen !='no imagen' "  class="hover_img">
+      <a href="#">Show Image<span><img src="{{carta.carta.imagen}}" alt="image" height="200" /></span></a>
+    </td>
   </tr>
 
 

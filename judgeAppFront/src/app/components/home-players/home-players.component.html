@@ -5,12 +5,13 @@
 
   <div class="row row-cols-4 row-cols-lg-2 g-3 g-lg-2">
     <div class="col" style="width:18rem" *ngFor="let deck of decks; let i = index">
+      <div></div>
+
       <div class="card" style="width: 100%;" >
         <img src="{{deck.imagen}}" class=" " alt="">
         <div class="card-body">
           <h2 class="card-title">{{deck.nombreBaraja}}</h2>
-
-          <h5> {{deck.formato.nombre}}</h5>
+  <h5> {{deck.formato.nombre}}</h5>
 
           <button class="btn btn-primary" (click)="irAlDeckCarta(deck)" (click)="scroll(target)">Mostrar</button>
         </div>
@@ -24,6 +25,5 @@
   <div #target>
     <app-cartas-deck></app-cartas-deck>
   </div>
-
 <app-footer></app-footer>
 

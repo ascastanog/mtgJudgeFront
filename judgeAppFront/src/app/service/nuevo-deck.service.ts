@@ -29,7 +29,7 @@ export class NuevoDeckService {
 
     return  this.httpClient.post<any[]>("http://localhost:8080/deckBuilder/add?formatoJson="+formato+"&nombreBaraja="+nombreBaraja,mazo,{headers:headers} ).subscribe(
       data=>{
-        console.log("galleta")
+        console.log("Cartas fallidas: "+data)
       }
     );
   }
