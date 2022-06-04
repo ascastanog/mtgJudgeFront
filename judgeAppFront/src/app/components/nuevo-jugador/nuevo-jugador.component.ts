@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {AuthService} from "../../service/auth.service";
 import {NuevoJugador} from "../../models/nuevo-jugador";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-nuevo-jugador',
@@ -29,7 +30,7 @@ export class NuevoJugadorComponent implements OnInit {
 
 
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router:Router) {
   }
 
   ngOnInit(): void {
@@ -47,6 +48,7 @@ export class NuevoJugadorComponent implements OnInit {
        console.log("error en el crear usuario")
     }
     )
+    this.router.navigate(['login'])
   }
 
 }

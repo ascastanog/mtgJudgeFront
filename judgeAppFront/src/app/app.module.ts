@@ -22,6 +22,7 @@ import {interceptorProvider} from "./interceptors/prod-interceptor.service";
 import { CartasDeckComponent } from './components/cartas-deck/cartas-deck.component';
 import { TablaMazoComponent } from './components/tabla-mazo/tabla-mazo.component';
 import { NuevoDeckComponent } from './components/nuevo-deck/nuevo-deck.component';
+import {ToastrModule} from "ngx-toastr";
 
 
 
@@ -52,6 +53,7 @@ import { NuevoDeckComponent } from './components/nuevo-deck/nuevo-deck.component
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]

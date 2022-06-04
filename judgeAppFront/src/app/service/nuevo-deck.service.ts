@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable, Subscription} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {ToastrService} from "ngx-toastr";
 
 
 @Injectable({
@@ -8,7 +9,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 })
 export class NuevoDeckService {
 
-  constructor( private httpClient:HttpClient) { }
+  constructor( private httpClient:HttpClient, private toastr: ToastrService) { }
 
 
   public getFormatos():Observable<any[]>{
@@ -16,21 +17,13 @@ export class NuevoDeckService {
   }
 
 
-  public addDeck( formato:string, nombreBaraja:string, mazo:any): Subscription{
-    console.log("hemos llegado al addDeck del service")
-    console.log("formato="+formato)
-    console.log("nombreBaraja="+nombreBaraja)
-    console.log("mazo"+mazo)
-    console.log(mazo.toString())
+  public addDeck( formato:string, nombreBaraja:string, mazo:any): Observable<any>{
+
     let deck: string = JSON.stringify(mazo)
-    console.log("deck en el service:"+deck)
+
 
     const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
 
-    return  this.httpClient.post<any[]>("http://localhost:8080/deckBuilder/add?formatoJson="+formato+"&nombreBaraja="+nombreBaraja,mazo,{headers:headers} ).subscribe(
-      data=>{
-        console.log("Cartas fallidas: "+data)
-      }
-    );
+    return  this.httpClient.post<any[]>("http://localhost:8080/deckBuilder/add?formatoJson="+formato+"&nombreBaraja="+nombreBaraja,mazo,{headers:headers} )
   }
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NuevoDeckService} from "../../service/nuevo-deck.service";
 import {Formato} from "../../models/formato";
-import {FormControl} from "@angular/forms";
-import {stringify} from "@angular/compiler/src/util";
+import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-nuevo-deck',
@@ -15,7 +15,7 @@ textArea:string="";
 formato: string = "";
 nombreBaraja: string = "";
 Json:string="";
-  constructor(private nuevoDeckService:NuevoDeckService) { }
+  constructor(private nuevoDeckService:NuevoDeckService, private toastr: ToastrService, private router:Router) { }
 
   ngOnInit(): void {
   this.cargarFormatos()
@@ -69,21 +69,36 @@ Json:string="";
 
       }
     }
-//console.log(JSON.stringify(cantidadCarta[0]))
 
-//console.log("linea: "+linea);
-//console.log("cantidadCarta: "+JSON.stringify(cantidadCarta))
-/*console.log("textArea: "+this.textArea);*/
-    console.log("cantidadCarta: "+JSON.stringify(cantidadCarta))
+
  return cantidadCarta;
 
   }
   enviarMazo():any{
-  console.log("enviar mazo hecho")
-    console.log("formato ts"+this.formato);
-    console.log("nombreBaraja ts: "+this.nombreBaraja)
-    console.log("formar JSON:"+this.formarJson())
-    this.nuevoDeckService.addDeck(this.formato, this.nombreBaraja,this.formarJson())
+
+  this.nuevoDeckService.addDeck(this.formato, this.nombreBaraja,this.formarJson()). subscribe(
+
+      data=>{
+        console.log("Cartas fallidas: "+data)
+        if(data.length == 0){
+          this.toastr.success(" La baraja ha sido guardada correctamente", 'Exito',{
+            timeOut: 3000,  positionClass: 'toast-top-center',
+          });
+
+          this.router.navigate(['home-players'])
+        }else {
+          for (let i = 0; i<data.length; i++){
+            this.toastr.error(data[i]+" no ha podido ser insertada", "Error",{
+              timeOut: 3000,  positionClass: 'toast-top-center'})
+          }
+        }
+      }, error =>{
+
+
+      }
+
+    );
+
 
   }
 
