@@ -1,0 +1,56 @@
+<app-header></app-header>
+<div class="d-flex">
+  <app-sidebar></app-sidebar>
+
+  <div class="row row-cols-4 row-cols-lg-2 g-3 g-lg-2">
+    <div class="col" style="width:18rem" *ngFor="let torneo of torneos; let i = index">
+      <div></div>
+
+      <div class="card" style="width: 100%;" >
+
+        <div  [ngClass]="{'class2':(torneoId == torneo.id)}"  (click)="torneoId = torneo.id" (click)="mostrar=true" (click)="cambiaEstado()" >
+          <h2 class="text-center">{{torneo.formato.nombre}}</h2>
+          <h2 class="card-title text-center">{{torneo.tienda.nombre}}</h2>
+          <h5 class="text-center">{{torneo.fecha | date:'dd/MM/yy'}}</h5>
+          <h5 class="text-center">{{torneo.fecha | date: 'shortTime'}}</h5>
+          <h5 class="text-center">{{torneo.tienda.direccion}}</h5>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="d-flex">
+  <div class="row row-cols-4 row-cols-lg-2 g-3 g-lg-2" *ngIf="mostrar">
+    <div class="col" style="width:18rem" *ngFor="let deck of decks; let i = index">
+      <div></div>
+
+      <div class="card" style="width: 100%;" [ngClass]="{'class2':(deckId == deck.id)}" (click)="deckId=deck.id" >
+        <div >
+          <img [src] = "getSafeUrl(deck.imagen)" alt="Red dot" width="100">
+
+
+        </div>
+        <div class="card-body">
+          <h2 class="card-title text-center">{{deck.nombreBaraja}}</h2>
+          <h5 class="text-center"> {{deck.formato.nombre}}</h5>
+
+          <button class="btn btn-primary" (click)="irAlDeckCarta(deck)" (click)="scroll(target)">Mostrar</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<button (click)="enviarMazo()" >Enviar</button>
+<div #target>
+  <app-cartas-deck></app-cartas-deck>
+</div>
+<app-footer></app-footer>
