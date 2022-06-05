@@ -3,6 +3,9 @@ import {NuevoDeckService} from "../../service/nuevo-deck.service";
 import {Formato} from "../../models/formato";
 import {ToastrService} from "ngx-toastr";
 import {Router} from "@angular/router";
+import {DomSanitizer} from "@angular/platform-browser";
+
+
 
 @Component({
   selector: 'app-nuevo-deck',
@@ -15,7 +18,10 @@ textArea:string="";
 formato: string = "";
 nombreBaraja: string = "";
 Json:string="";
-  constructor(private nuevoDeckService:NuevoDeckService, private toastr: ToastrService, private router:Router) { }
+public archivos: any = [];
+public previsualizacion: string ='';
+public base: string ='';
+  constructor(private nuevoDeckService:NuevoDeckService, private toastr: ToastrService, private router:Router, private sanitizer:DomSanitizer) { }
 
   ngOnInit(): void {
   this.cargarFormatos()
@@ -76,7 +82,7 @@ Json:string="";
   }
   enviarMazo():any{
 
-  this.nuevoDeckService.addDeck(this.formato, this.nombreBaraja,this.formarJson()). subscribe(
+  this.nuevoDeckService.addDeck(this.formato, this.nombreBaraja,this.formarJson(), this.previsualizacion). subscribe(
 
       data=>{
         console.log("Cartas fallidas: "+data)
@@ -93,14 +99,48 @@ Json:string="";
           }
         }
       }, error =>{
-
-
-      }
-
-    );
-
-
+      });
   }
 
+
+capturarFile(event:any): any {
+    const archivoCapturado = event.target.files[0];
+    this.extraerBase64(archivoCapturado).then((imagen: any) =>{
+      this.previsualizacion = imagen.base;
+      console.log("imagen.base: "+imagen.base)
+      console.log("imagen "+imagen)
+    })
+    this.archivos.push(archivoCapturado);
+
+
+
+}
+
+
+// @ts-ignore
+  extraerBase64 = async ($event: any) => new Promise(((resolve, reject) => {
+  try {
+    const unsafeImg = window.URL.createObjectURL($event);
+    const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+    const reader = new FileReader();
+    reader.readAsDataURL($event);
+    reader.onload = () => {
+      resolve({
+        blob: $event,
+        image,
+        base:reader.result});
+    };
+    reader.onerror = error =>{
+      resolve({
+        blob: $event,
+        image,
+        base: null
+      });
+    };
+  }catch (e){
+    return null;
+
+  }
+}))
 
 }

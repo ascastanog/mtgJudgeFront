@@ -10,7 +10,7 @@ export class Deck {
 
   jugador: Jugador;
   formato: Formato;
-  imagen: string;
+  imagen: any;
 
 
   constructor(id: number, nombreBaraja: string, jugador: Jugador, formato: Formato, imagen: string) {

@@ -9,6 +9,8 @@ import { NuevoJugadorComponent } from './components/nuevo-jugador/nuevo-jugador.
 
 import { CartasDeckComponent } from './components/cartas-deck/cartas-deck.component';
 import {NuevoDeckComponent} from "./components/nuevo-deck/nuevo-deck.component";
+import {TorneoComponent} from "./components/torneo/torneo.component";
+import {TusTorneosComponent} from "./components/tus-torneos/tus-torneos.component";
 
 const routes: Routes = [
   {path:'',component:IndexComponent},
@@ -18,6 +20,8 @@ const routes: Routes = [
   {path:'nuevo-usuario', component: NuevoJugadorComponent},
   {path: 'cartas-deck', component: CartasDeckComponent},
   {path: 'nuevo-deck', component: NuevoDeckComponent},
+  {path: 'torneo', component: TorneoComponent},
+  {path: 'tusTorneos', component: TusTorneosComponent},
 
 
   {path:'**', redirectTo:'login',pathMatch:'full'}

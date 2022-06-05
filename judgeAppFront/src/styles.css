@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+
+body{
+  background: url("/assets/fondo.jpg");
+font-family: jost;
+  color: #6e001e;
+  font-weight: bold;
+
+}

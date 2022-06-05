@@ -23,6 +23,9 @@ import { CartasDeckComponent } from './components/cartas-deck/cartas-deck.compon
 import { TablaMazoComponent } from './components/tabla-mazo/tabla-mazo.component';
 import { NuevoDeckComponent } from './components/nuevo-deck/nuevo-deck.component';
 import {ToastrModule} from "ngx-toastr";
+import { UploadPageComponent } from './components/upload-page/upload-page.component';
+import { TorneoComponent } from './components/torneo/torneo.component';
+import { TusTorneosComponent } from './components/tus-torneos/tus-torneos.component';
 
 
 
@@ -43,6 +46,9 @@ import {ToastrModule} from "ngx-toastr";
     CartasDeckComponent,
     TablaMazoComponent,
     NuevoDeckComponent,
+    UploadPageComponent,
+    TorneoComponent,
+    TusTorneosComponent,
 
   ],
   imports: [

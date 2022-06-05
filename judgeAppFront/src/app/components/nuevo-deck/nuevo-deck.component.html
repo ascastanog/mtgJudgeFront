@@ -21,11 +21,13 @@
 
         <div class="input-group mb-3">
       <div class="mb-3">
-        <label for="formFile" class="form-label">Default file input example</label>
-        <input class="form-control" type="file" id="formFile">
-        <span class="input-group-text" id="basic-addon3">imagen</span>
+       <!-- <label for="formFile" class="form-label">Default file input example</label>-->
+        <input (change)="capturarFile($event)" type="file" >
+       <!-- <span class="input-group-text" id="basic-addon3">imagen</span>-->
       </div>
-
+  <div *ngIf="previsualizacion!=''">
+    <img width="200" [src]="previsualizacion" alt="">
+  </div>
 
     </div>
 

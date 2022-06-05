@@ -8,7 +8,11 @@
       <div></div>
 
       <div class="card" style="width: 100%;" >
-        <img src="{{deck.imagen}}" class=" " alt="">
+        <div>
+       <img [src] = "getSafeUrl(deck.imagen)" alt="Red dot" width="100">
+
+
+      </div>
         <div class="card-body">
           <h2 class="card-title">{{deck.nombreBaraja}}</h2>
   <h5> {{deck.formato.nombre}}</h5>
