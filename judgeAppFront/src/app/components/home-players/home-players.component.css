@@ -1,0 +1,9 @@
+body{
+  background: url("src/assets/fondo.jpg") !important;
+}
+.btVerde{
+  background-color: #025d2c;
+  border:none;
+
+  color: #fff6ea;
+}

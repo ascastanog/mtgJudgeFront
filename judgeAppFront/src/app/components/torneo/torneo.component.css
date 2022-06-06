@@ -3,5 +3,16 @@
   border: #ff9900;
   border-radius: 5px;
   border-width: 5px;
+background-color: #de6f6f;
+}
+.btnRojo{
+  background-color: #6e001e ;
+  color: #fff6ea;
+  border: none;
+}
+.btVerde{
+  background-color: #025d2c;
+  border:none;
 
+  color: #fff6ea;
 }

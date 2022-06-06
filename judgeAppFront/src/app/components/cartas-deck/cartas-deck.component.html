@@ -1,8 +1,12 @@
+<br>
+<br>
+<br>
+<br>
+<div class=" m-auto bg-white d-flex justify-center w-75">
+  <h1 class="m-auto" *ngIf="cargado">Main</h1>
+<div class=" w-75  ">
 
-<h1 *ngIf="cargado">Main</h1>
-<div class="ms-5 me-5">
-
-<table *ngIf="cargado" class="table">
+<table *ngIf="cargado" class="table table-striped ">
   <thead>
   <tr>
 
@@ -17,34 +21,51 @@
     <td *ngIf="carta.sideboard==false" > {{carta.copias}}</td>
     <td *ngIf="carta.sideboard==false">{{carta.carta.nombre}}</td>
     <td *ngIf="carta.sideboard==false" class="hover_img">
-      <a href="#">Show Image<span><img src="{{carta.carta.imagen}}" alt="image" height="200" /></span></a>
+      <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera-fill" viewBox="0 0 16 16">
+        <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+        <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"/>
+      </svg> <span><img src="{{carta.carta.imagen}}" alt="image" height="200" /></span></a>
     </td>
   </tr>
   </tbody>
 </table>
-  <p  *ngIf="cargado">Cartas en el Main: {{cartasMain}}</p>
-<h1 *ngIf="cargado">Sideboard</h1>
-<table *ngIf="cargado" class="table">
-  <thead>
-  <tr>
+</div>
+  <p  *ngIf="cargado" class=" m-auto">Cartas en el Main: {{cartasMain}}</p>
+</div>
 
-    <th scope="col">Cantidad</th>
-    <th scope="col">nombre de la carta</th>
+<br>
 
-  </tr>
-  </thead>
+
+
+
+<div class=" m-auto bg-white d-flex justify-center w-75">
+<h1 *ngIf="cargado" class=" m-auto">Sideboard</h1>
+  <div class=" w-75  ">
+    <table *ngIf="cargado" class="table table-striped ">
+      <thead>
+      <tr>
+
+        <th scope="col">Cantidad</th>
+        <th scope="col">nombre de la carta</th>
+        <th scope="col">imagen</th>
+
+      </tr>
+      </thead>
   <tbody >
   <tr *ngFor=" let carta of deckCarta; let i = index" >
     <td *ngIf="carta.sideboard"> {{carta.copias}}</td>
     <td *ngIf="carta.sideboard">{{carta.carta.nombre}}</td>
     <td *ngIf="carta.sideboard && carta.carta.imagen !='no imagen' "  class="hover_img">
-      <a href="#">Show Image<span><img src="{{carta.carta.imagen}}" alt="image" height="200" /></span></a>
+      <a href="{{carta.carta.imagen}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera-fill" viewBox="0 0 16 16">
+        <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+        <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"/>
+      </svg><span><img src="{{carta.carta.imagen}}" alt="image" height="200" /></span></a>
     </td>
   </tr>
 
 
   </tbody>
 </table>
-  <p  *ngIf="cargado">Cartas en el banquillo: {{cartasSideboard}}</p>
-
+  </div>
+  <p  *ngIf="cargado" class=" m-auto ">Cartas en el banquillo: {{cartasSideboard}}</p>
 </div>
