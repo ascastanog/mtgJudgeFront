@@ -7,7 +7,7 @@
 
     <div class="input-group mb-3">
       <span class="input-group-text"  id="basic-addon1">Nombre de la baraja</span>
-      <input type="text" name="nombreBaraja" [(ngModel)]="nombreBaraja" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+      <input type="text" name="nombreBaraja" [(ngModel)]="nombreBaraja" class="form-control" placeholder="Grixis Shadow" aria-label="Username" aria-describedby="basic-addon1">
     </div>
 
 
@@ -21,9 +21,8 @@
 
         <div class="input-group mb-3">
       <div class="mb-3">
-       <!-- <label for="formFile" class="form-label">Default file input example</label>-->
-        <input (change)="capturarFile($event)" type="file" >
-       <!-- <span class="input-group-text" id="basic-addon3">imagen</span>-->
+
+        <input class="btn btVerde" (change)="capturarFile($event)" type="file" >
       </div>
   <div *ngIf="previsualizacion!=''">
     <img width="200" [src]="previsualizacion" alt="">
@@ -36,10 +35,10 @@
 
     <div class="input-group">
       <span class="input-group-text">Deck</span>
-      <textarea class="form-control side" name="textArea" [(ngModel)]="textArea" placeholder="MAIN &#10; 4 x thoughtsize &#10; 4 x griselbram &#10;. . .&#10;. . .&#10;SIDEBOARD &#10; 3 x Negate &#10; 3 x chalice of the void" aria-label="With textarea"></textarea>
+      <textarea class="form-control side" name="textArea" [(ngModel)]="textArea" placeholder=" 4 X thoughtsize &#10; 4 X griselbram &#10;. . .&#10;. . .&#10;SIDEBOARD &#10; 3 X Negate &#10; 3 X chalice of the void" aria-label="With textarea"></textarea>
     </div>
 
-    <button (click)=enviarMazo()>Enviar</button>
+    <button class=" mt-3 btn btn-primary btVerde" (click)=enviarMazo()>Enviar</button>
 
   </form>
 
