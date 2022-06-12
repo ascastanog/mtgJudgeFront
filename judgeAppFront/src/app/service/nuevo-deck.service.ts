@@ -3,18 +3,19 @@ import {Observable, Subscription} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {ToastrService} from "ngx-toastr";
 import {DeckImagen} from "../models/deck-imagen";
+import {environment} from "../../environments/environment.prod";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class NuevoDeckService {
-
+  rutaBase = environment.URLbase;
   constructor( private httpClient:HttpClient, private toastr: ToastrService) { }
 
 
   public getFormatos():Observable<any[]>{
-    return this.httpClient.get<any[]>("http://localhost:8080/deckBuilder/listaFormatos")
+    return this.httpClient.get<any[]>(this.rutaBase+"deckBuilder/listaFormatos")
   }
 
 
@@ -30,7 +31,7 @@ export class NuevoDeckService {
 
     console.log("add deck service")
 
-    return  this.httpClient.post<any[]>("http://localhost:8080/deckBuilder/add?formatoJson="+formato+"&nombreBaraja="+nombreBaraja,deckImagen,{headers:headers})
+    return  this.httpClient.post<any[]>(this.rutaBase+"deckBuilder/add?formatoJson="+formato+"&nombreBaraja="+nombreBaraja,deckImagen,{headers:headers})
 
   }
 }
